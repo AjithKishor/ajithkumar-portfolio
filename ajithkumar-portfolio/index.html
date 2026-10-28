@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ajithkumar M – Java Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef2f4; --surface:#ffffff; --ink:#0d1b24; --muted:#586b77; --line:#d3dce1;
+  --accent:#0a7480; --accent-ink:#ffffff; --mark:#f0b429; --ok:#1f9d5c;
+  --display:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;
+  --body:"Public Sans","Segoe UI",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0b161d;--surface:#13232c;--ink:#e8eff3;--muted:#9db0bc;--line:#26394a;--accent:#4cc3cf;--accent-ink:#06242a;--ok:#4fd08a}
+}
+:root[data-theme="dark"]{--bg:#0b161d;--surface:#13232c;--ink:#e8eff3;--muted:#9db0bc;--line:#26394a;--accent:#4cc3cf;--accent-ink:#06242a;--ok:#4fd08a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--mark);outline-offset:3px;border-radius:4px}
+.shell{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:250px 1fr;gap:64px}
+aside{position:sticky;top:0;align-self:start;padding:52px 0 40px;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+.avatar{width:56px;height:56px;border-radius:16px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:800 1.3rem var(--display);margin-bottom:18px;transform:rotate(-4deg)}
+.name{font:800 1.85rem/1.1 var(--display);letter-spacing:-.025em;margin:0 0 8px;white-space:nowrap}
+.role{color:var(--muted);margin:0 0 16px;font-size:.95rem;line-height:1.5}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;padding:5px 12px;border:1px solid var(--line);border-radius:99px;background:var(--surface);margin-bottom:32px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 25%,transparent)}
+nav{display:flex;flex-direction:column;gap:2px}
+nav button{all:unset;cursor:pointer;padding:7px 0 7px 16px;border-left:3px solid var(--line);color:var(--muted);font-weight:500;transition:color .15s,border-color .15s,padding .15s}
+nav button:hover{color:var(--ink)}
+nav button.on{color:var(--ink);border-left-color:var(--accent);padding-left:22px;font-weight:600}
+nav button:focus-visible{outline:3px solid var(--mark)}
+.meta{font-size:.85rem;color:var(--muted);margin:0}
+main{padding:52px 0 96px;min-width:0}
+section{padding:0 0 88px}
+h2{font:700 1.9rem/1.15 var(--display);letter-spacing:-.02em;margin:0 0 28px}
+h3{font:700 1.1rem/1.3 var(--display);margin:0}
+p{margin:0 0 14px;max-width:62ch}
+.top{display:flex;justify-content:flex-end;margin-bottom:12px}
+#theme{all:unset;cursor:pointer;color:var(--muted);font-size:.85rem;border-bottom:1px dashed var(--line)}
+.hero h1{font:800 clamp(2.5rem,6.2vw,4.4rem)/1 var(--display);letter-spacing:-.035em;margin:0 0 24px;max-width:15ch}
+.hero>p{font-size:1.12rem;color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font:600 1rem var(--body);text-decoration:none;border:2px solid var(--accent);cursor:pointer;transition:transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:44px 0 28px;padding-top:24px;border-top:1px solid var(--line)}
+.facts b{display:block;font:700 1.3rem/1.2 var(--display);letter-spacing:-.01em}
+.facts span{font-size:.88rem;color:var(--muted)}
+/* signature element: the stack, as offset layers */
+.stack{background:#0c2630;border-radius:18px;padding:20px;display:grid;gap:10px;color:#e8f1f4}
+.layer{background:#133743;border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:baseline;border-left:5px solid var(--c);animation:in .6s cubic-bezier(.2,.7,.2,1) both}
+.layer:nth-child(1){--c:#4cc3cf;margin-left:0;animation-delay:.1s}
+.layer:nth-child(2){--c:#4aa3d8;margin-left:22px;animation-delay:.22s}
+.layer:nth-child(3){--c:#8d8fe6;margin-left:44px;animation-delay:.34s}
+.layer:nth-child(4){--c:#f0b429;margin-left:66px;animation-delay:.46s}
+.layer b{font:700 .95rem var(--display);color:#fff}
+.layer span{color:#b9ced6;font-size:.93rem;line-height:1.5}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* timeline */
+.job{position:relative;border-left:2px solid var(--line);padding:0 0 0 28px;margin-left:8px}
+.job::before{content:"";position:absolute;left:-9px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg)}
+.when{color:var(--accent);font-weight:600;font-size:.9rem;margin:4px 0 14px}
+.job ul{margin:0;padding-left:18px;max-width:64ch}
+.job li{margin-bottom:9px}
+.job li::marker{color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.grid.wide{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card.work{border-top:5px solid var(--accent);border-radius:6px 6px 14px 14px;padding:26px}
+.card p{font-size:.95rem;color:var(--muted);margin:8px 0 12px}
+.card ul{margin:10px 0 18px;padding-left:18px;font-size:.95rem;color:var(--muted)}
+.card li{margin-bottom:7px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tags i{font-style:normal;font-size:.8rem;font-weight:500;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--ink)}
+.sub{font:700 1rem var(--display);color:var(--muted);margin:36px 0 14px}
+.sub:first-of-type{margin-top:0}
+.sg{display:grid;grid-template-columns:150px 1fr;gap:10px 24px;padding:18px 0;border-top:1px solid var(--line)}
+.sg:last-child{border-bottom:1px solid var(--line)}
+.sg h3{font-size:1rem;padding-top:3px}
+dl{display:grid;grid-template-columns:130px 1fr;gap:12px 20px;margin:0}
+dt{color:var(--muted)} dd{margin:0}
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr;gap:0;padding:0 18px}
+  aside{position:static;height:auto;padding:32px 0 0}
+  .avatar{width:48px;height:48px;margin-bottom:14px}
+  .status{margin-bottom:18px}
+  nav{flex-direction:row;overflow-x:auto;gap:18px;padding-bottom:4px;margin-bottom:6px;-webkit-overflow-scrolling:touch}
+  nav button{border-left:0;border-bottom:3px solid var(--line);padding:6px 0;white-space:nowrap}
+  nav button.on{padding-left:0;border-bottom-color:var(--accent)}
+  .meta{display:none}
+  main{padding-top:28px}
+  section{padding-bottom:64px}
+  .facts{grid-template-columns:1fr 1fr;gap:16px}
+  .layer{grid-template-columns:1fr;gap:2px;margin-left:0!important}
+  .sg{grid-template-columns:1fr}
+  dl{grid-template-columns:1fr;gap:2px 0}
+  dd{margin-bottom:12px}
+}
+@media print{aside,.btns,.top{display:none}.shell{display:block}section{break-inside:avoid;padding-bottom:28px}.stack{background:#fff;color:#000;border:1px solid #ccc}.layer{background:#fff;animation:none}.layer b{color:#000}.layer span{color:#333}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.layer{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div>
+      <div class="avatar" aria-hidden="true">AM</div>
+      <p class="name">Ajithkumar M</p>
+      <p class="role">Java Full Stack Developer<br>Namakkal, Tamil Nadu</p>
+      <span class="status">Open to work</span>
+      <nav aria-label="Sections">
+        <button data-to="about" class="on">About</button>
+        <button data-to="experience">Experience</button>
+        <button data-to="projects">Projects</button>
+        <button data-to="skills">Skills</button>
+        <button data-to="resume">Resume</button>
+        <button data-to="contact">Contact</button>
+      </nav>
+    </div>
+    <p class="meta">Java · Spring Boot · React · Cloud</p>
+  </aside>
+
+  <main>
+    <div class="top"><button id="theme" type="button">Switch theme</button></div>
+
+    <section id="about" class="hero">
+      <h1>I build cloud and enterprise apps from database to browser.</h1>
+      <p>Java full stack developer with 4+ years of experience building scalable enterprise applications with Spring Boot, microservices and React.js. I delivered cloud optimization and advisory features on the ComPaaS platform for global clients Kyndryl and IBM, and I use AI-assisted tools to build faster and with higher quality.</p>
+      <div class="btns">
+        <button class="btn primary" data-to="projects">See projects</button>
+        <button class="btn ghost" data-to="contact">Get in touch</button>
+      </div>
+      <div class="facts">
+        <div><b>4+ years</b><span>building enterprise apps</span></div>
+        <div><b>Kyndryl and IBM</b><span>global clients served</span></div>
+        <div><b>GCP, AWS, Azure</b><span>cloud platforms</span></div>
+      </div>
+      <div class="stack" aria-label="Technology stack by layer">
+        <div class="layer"><b>Frontend</b><span>React.js, TypeScript, Material UI, Micro Frontends (Module Federation)</span></div>
+        <div class="layer"><b>Backend</b><span>Java, Spring Boot, Spring Data JPA, Hibernate, REST APIs, Microservices</span></div>
+        <div class="layer"><b>Data</b><span>MySQL, PostgreSQL, MongoDB</span></div>
+        <div class="layer"><b>Cloud</b><span>GCP, AWS, Azure, Apache Tomcat</span></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="job">
+        <h3>Java Full Stack Developer, Corent Technology Pvt. Ltd., Chennai</h3>
+        <p class="when">Sep 2021 – Apr 2026</p>
+        <ul>
+          <li>Designed and developed REST APIs and microservices in Java and Spring Boot for frontend-backend integration.</li>
+          <li>Built reusable React.js components and responsive UIs with Material UI, including validation, error handling and state management.</li>
+          <li>Designed database solutions in MySQL and MongoDB and optimized SQL queries to improve response time.</li>
+          <li>Deployed and supported Spring Boot applications on Apache Tomcat, GCP Compute Engine and AWS EC2 across dev, test and production.</li>
+          <li>Resolved defects, API integration issues and production problems through log analysis and root-cause analysis, improving stability.</li>
+          <li>Worked with developers, QA and business analysts in Agile/Scrum teams, from sprint planning to client reviews.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="sub">Work projects</p>
+      <div class="grid wide">
+        <article class="card work">
+          <h3>ComPaaS: Cloud Optimization and Advisory Platform</h3>
+          <p>Full Stack Developer for clients Kyndryl and IBM, Sep 2021 – Apr 2026.</p>
+          <ul>
+            <li>Built cloud advisory and optimization features that find cost-saving and resource-optimization opportunities.</li>
+            <li>Implemented multi-cloud provider synchronization to detect unused and underutilized resources.</li>
+            <li>Contributed to cloud modernization and migration work, focused on reliability, scalability and performance.</li>
+            <li>Worked with QA to deliver reliable releases.</li>
+          </ul>
+          <div class="tags"><i>Java</i><i>Spring Boot</i><i>JPA/Hibernate</i><i>MySQL</i><i>MongoDB</i><i>React.js</i><i>Material UI</i></div>
+        </article>
+        <article class="card work">
+          <h3>SurPaaSAI: React Dashboards and Cloud Monitoring</h3>
+          <p>Two-month project.</p>
+          <ul>
+            <li>Developed React dashboards for cloud monitoring and cost optimization, with real-time data visualization.</li>
+            <li>Built UI components that improve user engagement and cloud resource management.</li>
+            <li>Improved workflows for spotting unnecessary resource usage and potential savings.</li>
+          </ul>
+          <div class="tags"><i>React.js</i><i>JavaScript</i></div>
+        </article>
+      </div>
+      <p class="sub">Personal projects</p>
+      <div class="grid">
+        <article class="card">
+          <h3>WhatUp</h3>
+          <p>A WhatsApp-style chat application.</p>
+          <div class="tags"><i>Spring Boot</i><i>React</i></div>
+        </article>
+        <article class="card">
+          <h3>Employee Management System</h3>
+          <p>Full stack app for managing employee records.</p>
+          <div class="tags"><i>Java</i><i>React</i><i>JPA</i></div>
+        </article>
+        <article class="card">
+          <h3>Billing Desktop App</h3>
+          <p>A Vyapar-style invoicing and billing app.</p>
+          <div class="tags"><i>Spring Boot</i><i>JavaFX</i><i>SQLite</i></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="sg"><h3>Backend</h3><div class="tags"><i>Java 8+</i><i>J2EE</i><i>Spring Boot</i><i>Spring MVC</i><i>Spring Data JPA</i><i>Hibernate</i><i>REST APIs</i><i>Microservices</i></div></div>
+      <div class="sg"><h3>Frontend</h3><div class="tags"><i>React.js</i><i>TypeScript</i><i>JavaScript</i><i>HTML5</i><i>CSS3</i><i>Material UI</i><i>Bootstrap</i><i>Micro Frontend</i><i>Module Federation</i><i>JSF</i><i>PrimeFaces</i></div></div>
+      <div class="sg"><h3>Databases</h3><div class="tags"><i>MySQL</i><i>PostgreSQL</i><i>MongoDB</i><i>SQL</i><i>Stored procedures</i></div></div>
+      <div class="sg"><h3>Cloud and servers</h3><div class="tags"><i>GCP</i><i>AWS EC2</i><i>Azure</i><i>Apache Tomcat</i></div></div>
+      <div class="sg"><h3>Tools and CI/CD</h3><div class="tags"><i>Git</i><i>SVN</i><i>Maven</i><i>Jenkins</i><i>IntelliJ IDEA</i><i>Eclipse</i><i>NetBeans</i><i>JUnit</i><i>Postman</i><i>SonarQube</i></div></div>
+      <div class="sg"><h3>Practices</h3><div class="tags"><i>Unit testing</i><i>Code review</i><i>Debugging</i><i>Production troubleshooting</i><i>Performance tuning</i><i>Agile Scrum</i></div></div>
+      <div class="sg"><h3>AI tools</h3><div class="tags"><i>Prompt engineering</i><i>Claude</i><i>GitHub Copilot</i><i>ChatGPT</i></div></div>
+    </section>
+
+    <section id="resume">
+      <h2>Resume</h2>
+      <dl>
+        <dt>Role</dt><dd>Java Full Stack Developer, 4+ years</dd>
+        <dt>Last company</dt><dd>Corent Technology Pvt. Ltd., Chennai (Sep 2021 – Apr 2026)</dd>
+        <dt>Education</dt><dd>B.E. Electronics and Communication Engineering, Anna University, 2016 – 2020<br>Paavai Engineering College, Namakkal</dd>
+        <dt>Certification</dt><dd>Java Full Stack Developer Certification, Accord Info Matrix, Chennai (June 2021)</dd>
+      </dl>
+      <div class="btns">
+        <a class="btn primary" href="Ajithkumar_M_Resume.pdf" download="Ajithkumar_M_Resume.pdf">Download resume (PDF)</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <dl>
+        <dt>Email</dt><dd><a href="mailto:ajithkishore06@gmail.com">ajithkishore06@gmail.com</a></dd>
+        <dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/ajith-kumar-0889101b1" target="_blank" rel="noopener">linkedin.com/in/ajith-kumar-0889101b1</a></dd>
+        <dt>Location</dt><dd>Namakkal, Tamil Nadu</dd>
+      </dl>
+    </section>
+  </main>
+</div>
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('[data-to]'));
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var el=document.getElementById(b.getAttribute('data-to'));
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  });});
+  var navBtns=[].slice.call(document.querySelectorAll('nav button'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){navBtns.forEach(function(n){n.classList.toggle('on',n.getAttribute('data-to')===e.target.id)});}
+    });},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
+  var t=document.getElementById('theme');
+  t.addEventListener('click',function(){
+    var r=document.documentElement;
+    var dark=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    r.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
+
+</body>
+</html>
